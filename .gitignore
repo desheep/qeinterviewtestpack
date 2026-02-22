@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Test debug ###
+/stability-log/
+/stability-log.txt
+/stability-log/**
+/target/failure-artifacts/

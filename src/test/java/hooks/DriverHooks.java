@@ -1,11 +1,14 @@
 package hooks;
 
 import context.ScenarioContext;
-import org.openqa.selenium.chrome.ChromeOptions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverHooks {
 
@@ -25,9 +28,21 @@ public class DriverHooks {
         switch (browser) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
+
                 if (headless) {
                     options.addArguments("--headless");
                 }
+
+                options.addArguments("--no-first-run");
+                options.addArguments("--no-default-browser-check");
+                options.addArguments("--disable-notifications");
+
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                prefs.put("profile.password_manager_leak_detection", false);
+                options.setExperimentalOption("prefs", prefs);
+
                 driver = new ChromeDriver(options);
                 break;
 
