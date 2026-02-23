@@ -4,5 +4,11 @@
       "username": "standard_user",
       "password": "secret_sauce"
     }
+  },
+  "lockedOutUser": {
+    "credentials": {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    }
   }
 }

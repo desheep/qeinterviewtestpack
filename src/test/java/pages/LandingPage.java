@@ -11,6 +11,7 @@ public class LandingPage extends BasePage {
     private final By username = By.cssSelector("[data-test='username']");
     private final By password = By.cssSelector("[data-test='password']");
     private final By loginButton = By.cssSelector("[data-test='login-button']");
+    private final By errorBanner = By.cssSelector("[data-test='error']");
 
     public LandingPage(WebDriver driver) {
         super(driver);
@@ -18,6 +19,14 @@ public class LandingPage extends BasePage {
 
     public void open() {
         driver.get(URL);
+    }
+
+    public boolean isErrorDisplayed() {
+        return isVisible(errorBanner);
+    }
+
+    public String getErrorMessage() {
+        return text(errorBanner);
     }
 
     public void loginAs(String user, String pass) {

@@ -24,6 +24,9 @@ public class InitialisationStepDefs {
             case "regular":
                 selectedUser = users.regularUser;
                 break;
+            case "locked_out":
+                selectedUser = users.lockedOutUser;
+                break;
             default:
                 throw new IllegalArgumentException("Unknown user key: " + userKey);
         }

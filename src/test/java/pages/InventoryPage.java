@@ -22,6 +22,16 @@ public class InventoryPage extends BasePage {
         click(addButton);
     }
 
+    public void removeFromCart(String productName) {
+        String nameToUse = productName.replace(" ", "-");
+        By removeButton = By.cssSelector(String.format("[data-test='remove-sauce-labs-%s']", nameToUse));
+        click(removeButton);
+    }
+
+    public boolean isCartEmpty() {
+        return driver.findElements(cartBadge).isEmpty();
+    }
+
     public boolean wereItemsAddedToTheCart(String expectedCount) {
         String actualCount = getCartBadgeCount();
         return expectedCount.equals(actualCount);
