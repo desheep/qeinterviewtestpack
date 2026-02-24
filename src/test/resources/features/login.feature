@@ -1,5 +1,6 @@
 Feature: Login
 
+  @critical
   Scenario: Regular user can login and see the inventory page
     Given I have test data for the "regular" user
     When I log into the website as a regular user

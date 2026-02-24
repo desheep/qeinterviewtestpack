@@ -3,6 +3,7 @@ Feature: Adding products to cart
   Background: Initialise Test Data
     Given I have test data for the "regular" user
 
+  @critical
   Scenario: Adding items to the basket shows a correct total
     Given I log into the website as a regular user
     When I add the "backpack" to my cart
